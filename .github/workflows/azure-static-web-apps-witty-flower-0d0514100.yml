@@ -57,6 +57,9 @@ jobs:
           skip_api_build: true
           output_location: ""
           github_id_token: ${{ steps.idtoken.outputs.result }}
+          api_language: "python"
+          api_version: "3.11"
+          config_file_location: "src"
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
