@@ -1,4 +1,7 @@
 {
+  "platform": {
+    "apiRuntime": "python:3.11"
+  },
   "routes": [
     {
       "route": "/api/*",
@@ -6,9 +9,7 @@
     }
   ],
   "responseOverrides": {
-    "404": {
-      "rewrite": "/index.html"
-    }
+    "404": { "rewrite": "/index.html" }
   },
   "mimeTypes": {
     ".json": "text/json"
