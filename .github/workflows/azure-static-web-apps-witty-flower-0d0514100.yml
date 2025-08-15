@@ -100,7 +100,7 @@ jobs:
           skip_app_build: true              # Oryx無効
           # --- API (Python 3.11, 前段ビルド済) ---
           api_location: "api"
-          skip_api_build: true              # Oryx無効
+          skip_api_build: false              # Oryx無効
           # --- OIDC ---
           github_id_token: ${{ steps.idtoken.outputs.result }}
 
