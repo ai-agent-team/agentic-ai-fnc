@@ -79,6 +79,15 @@ jobs:
           echo "=== staticwebapp.config.json ==="
           cat src/staticwebapp.config.json
 
+      - name: Verify API tree
+        run: |
+          echo "pwd=$(pwd)"
+          ls -la api || true
+          find api -maxdepth 2 -type f -name "host.json" -o -name "function.json" -print
+
+      - name: Verify apiRuntime
+        run: jq '.platform.apiRuntime' src/staticwebapp.config.json
+
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
