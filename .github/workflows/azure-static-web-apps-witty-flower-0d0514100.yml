@@ -70,6 +70,15 @@ jobs:
                return await coredemo.getIDToken()
            result-encoding: string
 
+      - name: Verify staticwebapp.config.json
+        run: |
+          echo "pwd: $(pwd)"
+          ls -la src || true
+          test -f src/staticwebapp.config.json || {
+            echo "configが見つかりません"; exit 1; }
+          echo "=== staticwebapp.config.json ==="
+          cat src/staticwebapp.config.json
+
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
